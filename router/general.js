@@ -1,0 +1,47 @@
+const express = require('express');
+let books = require("./booksdb.js");
+let isValid = require("./auth_users.js").isValid;
+let users = require("./auth_users.js").users;
+const public_users = express.Router();
+
+public_users.post("/register", (req,res) => {
+  //Write your code here
+  return res.status(300).json({message: "Yet to be implemented"});
+});
+
+// Tarea 10: Get the book list available in the shop (async/await con Promesa)
+public_users.get('/', async (req, res) => {
+  try {
+    const getBooks = () => Promise.resolve(books);
+    const allBooks = await getBooks();
+    res.status(200).json(allBooks);
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching books", error: error.message });
+  }
+});
+
+// Get book details based on ISBN
+public_users.get('/isbn/:isbn',function (req, res) {
+  //Write your code here
+  return res.status(300).json({message: "Yet to be implemented"});
+ });
+  
+// Get book details based on author
+public_users.get('/author/:author',function (req, res) {
+  //Write your code here
+  return res.status(300).json({message: "Yet to be implemented"});
+});
+
+// Get all books based on title
+public_users.get('/title/:title',function (req, res) {
+  //Write your code here
+  return res.status(300).json({message: "Yet to be implemented"});
+});
+
+// Get book review
+public_users.get('/review/:isbn',function (req, res) {
+  //Write your code here
+  return res.status(300).json({message: "Yet to be implemented"});
+});
+
+module.exports.general = public_users;
