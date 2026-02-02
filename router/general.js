@@ -63,6 +63,8 @@ public_users.get('/author/:author', async (req, res) => {
 });
 
 // Obtener libros por título
+//curl http://localhost:5000/title/Things%20Fall%20Apart
+
 public_users.get('/title/:title', async (req, res) => {
     const title = req.params.title;
     try {
