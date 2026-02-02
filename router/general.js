@@ -46,6 +46,8 @@ public_users.get('/isbn/:isbn', async (req, res) => {
 });
 
 // Obtener libros por autor
+//curl http://localhost:5000/author/Chinua%20Achebe
+
 public_users.get('/author/:author', async (req, res) => {
     const author = req.params.author;
     try {
